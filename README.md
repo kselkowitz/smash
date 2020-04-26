@@ -1,7 +1,7 @@
 # smash
 SMASH monitors specific types of SNAPsolution users to ensure MFA is enabled
 
-1) Load the script to your QoS server (suggest /usr/local/scripts/smash.php)
+1) Load the script to your Core server (suggest /usr/local/scripts/smash.php)
 
 2) Edit constants at top of file (define lines)
 
