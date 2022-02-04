@@ -57,13 +57,13 @@ if ($body_details!="")
 // check Portal Users 
 
 $scopearray=explode(',', PORTALSCOPES);
-$scopequery="";
+$scopequery="(";
 
 foreach ($scopearray as $scope)
 {
     $scopequery .= "Scope='" . $scope . "' OR ";
 }
-$scopequery=substr($scopequery,0,-4); //strip last OR
+$scopequery=substr($scopequery,0,-4) . ')'; //strip last OR and add close paren
 
 $sql = "SELECT CONCAT(aor_user,'@',aor_host) as subscriber_id, firstname,lastname, email_address FROM SiPbxDomain.subscriber_config LEFT JOIN NsApi.multifactor_auth ON CONCAT(aor_user,'@',aor_host) = ns_id WHERE ns_id IS NULL AND " . $scopequery;
 
